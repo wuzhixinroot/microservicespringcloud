@@ -1,0 +1,44 @@
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #mybatis 全局配置文件所在路径
+  type-aliases-package: com.wuzhixin.springcloud.entities #实体类所在包
+  mapper-locations: mybatis/mapper/**/*.xml #mapper映射文件
+
+
+spring:
+  application:
+    name: microservicecloud-dept #微服务暴露的名字接口
+  datasource:         #数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源类型
+    driver-class-name: org.gjt.mm.mysql.Driver    #驱动包
+    url: jdbc:mysql://localhost:3306/cloudDB01    #数据库名称
+    username: root
+    password: 111111
+    dbcp2:
+      min-idle: 5   #最少闲置连接
+      initial-size: 5 #初始化连接
+      max-total: 5  #最大连接数
+      max-wait-millis: 200  #连接最长时间
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      #客户端注册服务端地址
+    #eureka-client-u-r-l-context: http://localhost:7001/eureka/
+    #service-url:  单机版
+    #  defaultZone: http://localhost:7001/eureka/
+
+  instance:
+    instance-id: microservicecloud-hystrixdept8001 #实例名
+    prefer-ip-address: true #显示ip地址
+
+info:
+  app.name: study-springcloud-micoservices
+  company.name: www.wuzhixin.com
+  build.artifactId: microservicecloud-provider-dept-hystrix8001
+  #build.artifactId: microservicecloud-provider-dept-hystrix8001
+  build.version: 1.0-SNAPSHOT
+  #build.version: 1.0-SNAPSHOT

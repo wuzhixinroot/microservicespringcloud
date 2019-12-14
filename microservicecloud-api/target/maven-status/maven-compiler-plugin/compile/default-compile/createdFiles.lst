@@ -1,0 +1,5 @@
+com/wuzhixin/springcloud/service/DeptClientService.class
+com/wuzhixin/springcloud/entities/Dept.class
+com/wuzhixin/springcloud/service/DeptClientServiceFallbackFactory.class
+com/wuzhixin/springcloud/entities/User.class
+com/wuzhixin/springcloud/service/DeptClientServiceFallbackFactory$1.class

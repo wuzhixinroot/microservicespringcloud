@@ -1,0 +1,27 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: gateway9527.com
+    prefer-ip-address: true
+
+info:
+  app.name: cloudservice-zuul
+  company.name: www.wuzhixin.com
+  build.artifactId: microservicecloud-zuul-gateway-9527
+  build.version: 1.0-SNAPSHOT
+
+zuul:
+  ignored-services: microservicecloud-dept  #隐藏原来地址，不能访问，对外隐藏
+  routes:
+    sss.serviceId: microservicecloud-dept  #服务名映射自己改的
+    sss.path: /sss/**
+  prefix: /wuzhixin
